@@ -37,7 +37,6 @@ class BearComponent extends Component {
     }
     look = event => {
         const el = event.target;
-        console.log(el);
         const text = el.value.substr(0, el.selectionStart);
 
         this.span.innerText = text || '.';
@@ -117,18 +116,13 @@ class BearComponent extends Component {
         const BearArray = [<BrownBear />, <PandaBear />, <WhiteBear />];
         const randomBear = BearArray[Math.floor(Math.random() * BearArray.length)];
 
-        const contentStyle = {
-            display: 'flex',
-            flexDirection: 'column'
-        }
-
         this.fauxInput.appendChild(this.span);
         return (
-            <div id="content" style={contentStyle}>
+            <form>
                 {randomBear}
                 <input ref={this.emailInput} type="text" placeholder="email@domain.com" />
                 <input ref={this.passwordInput} type="password" placeholder="Password" />
-            </div>
+            </form>
         )
     }
 }
